@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    overflow: hidden;
+
     /* Ved ikke om det kan være med */
 }
 
@@ -27,35 +27,6 @@ img{
     grid-template-rows: 100%;
 }
 
-#start {
-    width: 100%;
-    height: 100%;
-    top: 0%;
-    left: 0%;
-    /* udkommenteret da der  ikke er et billede */
-    /* background-image: url(svg/game_over.svg);
-  background-size: cover; */
-}
-
-#game_over {
-    width: 100%;
-    height: 100%;
-    top: 0%;
-    left: 0%;
-    /* udkommenteret da der  ikke er et billede */
-    /* background-image: url(svg/game_over.svg);
-  background-size: cover; */
-}
-
-#level_complete {
-    width: 100%;
-    height: 100%;
-    top: 0%;
-    left: 0%;
-    /* udkommenteret da der  ikke er et billede */
-    /* background-image: url(svg/level_complete.svg);
-  background-size: cover; */
-}
 
 #game_background {
     grid-area: 1 / 1;
@@ -112,14 +83,27 @@ overflow: hidden;
 }
 
 #game_ui {
-    grid-area: 1 / 1;
-    position: relative;
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+grid-template-rows: 50px 50px;
+gap: 10px;
+
 }
 
-#life_board{
-    
-    position: absolute;
+#life_board, #score_board, #time_board{
+background-color: #C8102E;
+border: 1px solid #F6EB61;
+color: #00B2A9;
+opacity: 80%;
+font-size: 18px;
+text-align: center;
+display: flex;
+align-items: center;
+justify-content: center;
+font-family: "Pixel Takhisis";
+}
+
+#life_board > img{
     width: 4%;
     right: 2%;
-
 }

@@ -70,6 +70,30 @@ overflow: hidden;
     height: 100%;
 }
 
+#net_container{
+    width: 50%;
+    position: absolute;
+    top: 55%;
+    left: 25%
+}
+
+#net_sprite{
+    width: 100%;
+    height: 100%;
+}
+
+#bold_container {
+    width: 8%;
+    position: absolute;
+    top: 30%;
+    left: 40%;
+}
+
+#bold_sprite {
+    width: 100%;
+    height: 100%;
+}
+
 #darwin_container{
     width: 23%;
     position: absolute;
@@ -102,6 +126,9 @@ align-items: center;
 justify-content: center;
 font-family: "Pixel Takhisis";
 }
+
+
+
 
 #life_board > img{
     width: 4%;

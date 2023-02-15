@@ -1,0 +1,11 @@
+{
+  "folders": [
+	{
+		"name": "Clicker-Spil",
+		"path": "."
+	}
+],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "Clicker-Spil"
+  }
+}

@@ -1,168 +1,163 @@
 body {
-    margin: 0;
-
-    /* Ved ikke om det kan være med */
+  margin: 0;
 }
 
-img{
-    width: 100%;
+img {
+  width: 100%;
 }
 
 #screen {
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 100%;
-    width: 100%;
-    aspect-ratio: 16/9;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 100%;
+  width: 100%;
+  outline: solid black;
+  aspect-ratio: 16/9;
 }
 
 #game {
-    grid-area: 1 / 1;
-    background-color: blue;
+  grid-area: 1 / 1;
+  background-color: blue;
 
-    overflow: hidden;
+  overflow: hidden;
 
-    display: grid;
-    grid-template-columns: 10% / 10%;
-    grid-template-rows: 100%;
+  display: grid;
+  grid-template-columns: 10% / 10%;
+  grid-template-rows: 100%;
 }
 
-
 #game_background {
-    grid-area: 1 / 1;
-    background-image: url(billeder/soccer-players-action-professional-stadium.jpg);
-    background-size: cover;
+  grid-area: 1 / 1;
+  background-image: url(billeder/soccer-players-action-professional-stadium.jpg);
+  background-size: cover;
 }
 
 #game_elements {
-grid-area: 1 / 1;
-position: relative;
-overflow: hidden;
+  grid-area: 1 / 1;
+  position: relative;
+  overflow: hidden;
 }
 
 #game_foreground {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0%;
-    left: 0%;
-}
-
-#game_ui {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0%;
-    left: 0%;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: 0%;
+  left: 0%;
 }
 
 /* spil elementer */
 
 #joachim_container {
-    width: 12%;
-    position: absolute;
-    top: 70%;
-    left: 45%;
-    z-index: 2;
+  width: 12%;
+  position: absolute;
+  top: 70%;
+  left: 45%;
+  z-index: 2;
 }
 
 #joachim_sprite {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
-
 #bold_container {
-    width: 6%;
-    position: absolute;
-    top: 70%;
-    left: 30%;
-    z-index: 2;
+  width: 6%;
+  position: absolute;
+  top: 70%;
+  left: 30%;
+  z-index: 2;
 }
 
 #bold_sprite {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 #guld-bold_container {
-    width: 11%;
-    position: absolute;
-    top: 47%;
-    left: 23%;
-    z-index: 2;
+  width: 11%;
+  position: absolute;
+  top: 47%;
+  left: 23%;
+  z-index: 2;
 }
-#guld-bold_sprite{
-    width: 100%;
-    height: 100%;
-}
-
-
-#darwin_container{
-    width: 23%;
-    position: absolute;
-    top: 71.5%;
-    right: -3%;
-    z-index: 1;
-
+#guld-bold_sprite {
+  width: 100%;
+  height: 100%;
 }
 
-#darwin_sprite{
-    width: 100%;
-    height: 100%;
-} 
-
-#darwin_container2{
-    width: 23%;
-    position: absolute;
-    top: 71.5%;
-    z-index: 1;
-    transform: rotateY(180deg);
-    left: -3%;
+#darwin_container {
+  width: 23%;
+  position: absolute;
+  top: 71.5%;
+  right: -3%;
+  z-index: 1;
 }
 
-#darwin_sprite2{
-    width: 100%;
-    height: 100%;
+#darwin_sprite {
+  width: 100%;
+  height: 100%;
 }
 
-#net_container{
-    width: 87%;
-    position: absolute;
-    top: 15%;
-    left: 6.5%
+#darwin_container2 {
+  width: 23%;
+  position: absolute;
+  top: 71.5%;
+  z-index: 1;
+  transform: rotateY(180deg);
+  left: -3%;
 }
 
-#net_sprite{
-    width: 100%;
-    height: 100%;
+#darwin_sprite2 {
+  width: 100%;
+  height: 100%;
+}
+
+#net_container {
+  width: 87%;
+  position: absolute;
+  top: 15%;
+  left: 6.5%;
+}
+
+#net_sprite {
+  width: 100%;
+  height: 100%;
 }
 
 #game_ui {
-display: grid;
-grid-template-columns: 1fr 1fr 1fr;
-grid-template-rows: 50px 50px;
-gap: 10px;
-
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 80px 80px;
+  gap: 10px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0%;
+  left: 0%;
 }
 
-#life_board, #score_board, #time_board{
-background-color: #C8102E;
-border: 1px solid #F6EB61;
-color: #00B2A9;
-opacity: 80%;
-font-size: 18px;
-text-align: center;
-display: flex;
-align-items: center;
-justify-content: center;
-font-family: "Pixel Takhisis";
+#life_board,
+#score_board,
+#time_board {
+  background-color: #c8102e;
+  border: 1px solid #f6eb61;
+  color: #00b2a9;
+  opacity: 70%;
+  font-size: 18px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Pixel Takhisis";
 }
 
+#time_board > img {
+  width: 17%;
+  right: auto;
+}
 
-
-
-#life_board > img{
-    width: 4%;
-    right: 2%;
+#life_board > img {
+  width: 4%;
+  right: auto;
 }

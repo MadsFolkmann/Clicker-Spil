@@ -69,6 +69,32 @@ img {
   z-index: 2;
 }
 
+#bold2_sprite {
+  width: 100%;
+  height: 100%;
+}
+
+#bold2_container {
+  width: 6%;
+  position: absolute;
+  top: 50%;
+  left: 72%;
+  z-index: 2;
+}
+
+#bold3_sprite {
+  width: 100%;
+  height: 100%;
+}
+
+#bold3_container {
+  width: 6%;
+  position: absolute;
+  top: 80%;
+  left: 45%;
+  z-index: 2;
+}
+
 #bold_sprite {
   width: 100%;
   height: 100%;
@@ -86,6 +112,9 @@ img {
   height: 100%;
 }
 
+
+
+/* Ikke brugbare elementer */
 #darwin_container {
   width: 23%;
   position: absolute;
@@ -125,6 +154,10 @@ img {
   height: 100%;
 }
 
+
+
+
+/* UI */
 #game_ui {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -143,13 +176,18 @@ img {
   background-color: #c8102e;
   border: 1px solid #f6eb61;
   color: #00b2a9;
-  opacity: 70%;
+
   font-size: 18px;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: "Pixel Takhisis";
+}
+
+#score_board > img{
+    width: 17%;
+    right: auto;
 }
 
 #time_board > img {
@@ -161,3 +199,4 @@ img {
   width: 4%;
   right: auto;
 }
+

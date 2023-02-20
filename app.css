@@ -173,10 +173,6 @@ img {
 #life_board,
 #score_board,
 #time_board {
-  background-color: #c8102e;
-  border: 1px solid #f6eb61;
-  color: #00b2a9;
-
   font-size: 18px;
   text-align: center;
   display: flex;
@@ -186,17 +182,17 @@ img {
 }
 
 #score_board > img{
-    width: 17%;
+    width: 20%;
     right: auto;
 }
 
 #time_board > img {
-  width: 17%;
+  width: 20%;
   right: auto;
 }
 
 #life_board > img {
-  width: 4%;
+  width: 10%;
   right: auto;
 }
 

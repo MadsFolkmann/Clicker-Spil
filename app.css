@@ -58,7 +58,7 @@ img {
   height: 100%;
 }
 
-#bold_container {
+#ball1_container {
   width: 6%;
   position: absolute;
   top: 70%;
@@ -66,12 +66,13 @@ img {
   z-index: 2;
 }
 
-#bold2_sprite {
+#ball1_sprite {
   width: 100%;
   height: 100%;
 }
 
-#bold2_container {
+
+#ball2_container {
   width: 6%;
   position: absolute;
   top: 50%;
@@ -79,12 +80,17 @@ img {
   z-index: 2;
 }
 
-#bold3_sprite {
+#ball2_sprite {
   width: 100%;
   height: 100%;
 }
 
-#bold3_container {
+#ball3_sprite {
+  width: 100%;
+  height: 100%;
+}
+
+#ball3_container {
   width: 6%;
   position: absolute;
   top: 80%;
@@ -92,19 +98,15 @@ img {
   z-index: 2;
 }
 
-#bold_sprite {
-  width: 100%;
-  height: 100%;
-}
 
-#guld-bold_container {
+#gold-ball_container {
   width: 11%;
   position: absolute;
   top: 47%;
   left: 23%;
   z-index: 2;
 }
-#guld-bold_sprite {
+#gold-ball_sprite {
   width: 100%;
   height: 100%;
 }

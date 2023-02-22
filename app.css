@@ -46,11 +46,11 @@ img {
 /* spil elementer */
 
 #joachim_container {
-  width: 12%;
+  width: 7%;
   position: absolute;
   top: 70%;
-  left: 45%;
-  z-index: 2;
+  left: 48%;
+  z-index: 3;
 }
 
 #joachim_sprite {

@@ -10,7 +10,7 @@ function start() {
 
   document.querySelector("#ball1_container").classList.add("ball_zoom_in");
   document.querySelector("#ball2_container").classList.add("ball_zoom_in");
-  document.querySelector("#ball3_container").classList.add("ball_zoom_out");
+  document.querySelector("#ball3_container").classList.add("ball_zoom_in");
   document.querySelector("#gold_ball_container").classList.add("gold_ball_zoom_in");
   document.querySelector("#joachim_container").classList.add("joachim_zoom_in");
 
@@ -28,19 +28,15 @@ function clickBall() {
   console.log("Click ball");
   // Forhindr gentagne clicks
   document.querySelector("#ball1_container").removeEventListener("mousedown", clickBall);
-  document.querySelector("#ball3_container").removeEventListener("mousedown", clickBall);
 
   // Stop coin container
   document.querySelector("#ball1_container").classList.add("paused");
-  document.querySelector("#ball3_container").classList.add("paused");
 
   // sæt forsvind-animation på coin
   document.querySelector("#ball1_sprite").classList.add("shot");
-  document.querySelector("#ball3_sprite").classList.add("shot");
 
   // når forsvind-animation er færdig: coinGone
   document.querySelector("#ball1_container").addEventListener("animationend", ballGone);
-  document.querySelector("#ball3_container").addEventListener("animationend", ballGone);
 
    incrementPoints();
 }
@@ -210,7 +206,7 @@ function clickJoachim() {
     cards++;
      displayIncrementedCard();
   }
-function displayIncrementedCard() {
+  function displayIncrementedCard() {
     console.log("#card" + cards)
     document.querySelector("#card" + cards).classList.remove("no_card");
     document.querySelector("#card" + cards).classList.add("activate_card");

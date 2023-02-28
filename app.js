@@ -8,67 +8,67 @@ window.addEventListener("load", start)
 function start() {
   console.log("JavaScript kører!")
 
+  //start animationer
+  startAnimationer();
+
+  //Click
+   click();
+
+  //position
+  positionering();
+
+  //restart
+   setupRestart();
+}
+
+
+function setupRestart() {
+  document.querySelector("#ball1_container").addEventListener("animationiteration", ballRestart);
+  document.querySelector("#ball2_container").addEventListener("animationiteration", ballRestart);
+  document.querySelector("#ball3_container").addEventListener("animationiteration", ballRestart);
+  document.querySelector("#gold_ball_container").addEventListener("animationiteration", goldenBallRestart);
+  document.querySelector("#joachim_container").addEventListener("animationiteration", joachimRestart);
+}
+
+function positionering() {
+  document.querySelector("#ball1_container").classList.add("position1");
+  document.querySelector("#ball2_container").classList.add("position2");
+  document.querySelector("#ball3_container").classList.add("position3");
+  document.querySelector("#gold_ball_container").classList.add("position4");
+  document.querySelector("#joachim_container").classList.add("position5");
+}
+
+function click() {
+  document.querySelector("#ball1_container").addEventListener("mousedown", clickBall);
+  document.querySelector("#ball2_container").addEventListener("mousedown", clickBall);
+  document.querySelector("#ball3_container").addEventListener("mousedown", clickBall);
+  document.querySelector("#gold_ball_container").addEventListener("mousedown", clickGoldenBall);
+  document.querySelector("#joachim_container").addEventListener("mousedown", clickJoachim);
+}
+
+function startAnimationer() {
   document.querySelector("#ball1_container").classList.add("ball_zoom_in");
   document.querySelector("#ball2_container").classList.add("ball_zoom_in");
   document.querySelector("#ball3_container").classList.add("ball_zoom_in");
   document.querySelector("#gold_ball_container").classList.add("gold_ball_zoom_in");
   document.querySelector("#joachim_container").classList.add("joachim_zoom_in");
-
-   document.querySelector("#ball1_container").addEventListener("mousedown", clickBall);
-   document.querySelector("#ball2_container").addEventListener("mousedown", clickBall2);
-   document.querySelector("#ball3_container").addEventListener("mousedown", clickBall3);
-   document.querySelector("#gold_ball_container").addEventListener("mousedown", clickGoldenBall);
-   document.querySelector("#joachim_container").addEventListener("mousedown", clickJoachim);
 }
-
 
 //Alt der giver 1 plus point
 
 function clickBall() {
   console.log("Click ball");
-  // Forhindr gentagne clicks
-  document.querySelector("#ball1_container").removeEventListener("mousedown", clickBall);
+  let ball = this;
 
-  // Stop coin container
-  document.querySelector("#ball1_container").classList.add("paused");
+  ball.removeEventListener("mousedown", clickBall);
 
-  // sæt forsvind-animation på coin
-  document.querySelector("#ball1_sprite").classList.add("shot");
+  ball.classList.add("paused");
 
-  // når forsvind-animation er færdig: coinGone
-  document.querySelector("#ball1_container").addEventListener("animationend", ballGone);
+  ball.querySelector("img").classList.add("shot");
+
+  ball.addEventListener("animationend", ballGone);
 
    incrementPoints();
-}
-
-function clickBall2() {
-  console.log("Click ball2");
-  // Forhindr gentagne clicks
-
-  document.querySelector("#ball2_container").removeEventListener("mousedown", clickBall2);
-  // Stop coin container
-  document.querySelector("#ball2_container").classList.add("paused");
-  // sæt forsvind-animation på coin
-  document.querySelector("#ball2_sprite").classList.add("shot");
-  // når forsvind-animation er færdig: coinGone
-  document.querySelector("#ball2_container").addEventListener("animationend", ballGone2);
-
-    incrementPoints();
-
-}
-
-function clickBall3() {
-  console.log("Click ball3");
-  // Forhindr gentagne clicks
-  document.querySelector("#ball3_container").removeEventListener("mousedown", clickBall3);
-  // Stop coin container
-  document.querySelector("#ball3_container").classList.add("paused");
-  // sæt forsvind-animation på coin
-  document.querySelector("#ball3_sprite").classList.add("shot");
-  // når forsvind-animation er færdig: coinGone
-  document.querySelector("#ball3_container").addEventListener("animationend", ballGone3);
-
-  incrementPoints();
 }
 
   function incrementPoints() {
@@ -83,69 +83,49 @@ function clickBall3() {
 
 function ballGone() {
   console.log("Ball gone")
-  // fjern event der bringer os herind
-  document.querySelector("#ball1_container").removeEventListener("animationend", ballGone);
-  // fjern forsvind-animation
-  document.querySelector("#ball1_sprite").classList.remove("shot");
-  // fjern pause
-  document.querySelector("#ball1_container").classList.remove("paused");
-  // genstart falling animation
-  document.querySelector("#ball1_container").classList.remove("ball_zoom_in");
-  document.querySelector("#ball1_container").offsetWidth;
-  document.querySelector("#ball1_container").classList.add("ball_zoom_in");
-  // gør det muligt at klikke på coin igen
-  document.querySelector("#ball1_container").addEventListener("mousedown", clickBall);
-}
+  let ball = this;
+  ball.removeEventListener("animationend", ballGone);
+  
+  ball.querySelector("img").classList.remove("shot");
 
-function ballGone2() {
-  console.log("Ball gone");
-  // fjern event der bringer os herind
-  document.querySelector("#ball2_container").removeEventListener("animationend", ballGone2);
-  // fjern forsvind-animation
-  document.querySelector("#ball2_sprite").classList.remove("shot");
-  // fjern pause
-  document.querySelector("#ball2_container").classList.remove("paused");
-  // genstart falling animation
-  document.querySelector("#ball2_container").classList.remove("ball_zoom_in");
-  document.querySelector("#ball2_container").offsetWidth;
-  document.querySelector("#ball2_container").classList.add("ball_zoom_in");
-  // gør det muligt at klikke på coin igen
-  document.querySelector("#ball2_container").addEventListener("mousedown", clickBall2);
+  ball.classList.remove("paused");
+
+  ballRestart.call(this);
+
+  ball.addEventListener("mousedown", clickBall);
+
 
 }
+function ballRestart() {
+  let ball = this;
+    ball.classList.remove("ball_zoom_in");
+    ball.offsetWidth;
+    ball.classList.add("ball_zoom_in");
 
-function ballGone3() {
-  console.log("Ball gone3");
-  // fjern event der bringer os herind
-  document.querySelector("#ball3_container").removeEventListener("animationend", ballGone3);
-  // fjern forsvind-animation
-  document.querySelector("#ball3_sprite").classList.remove("shot");
-  // fjern pause
-  document.querySelector("#ball3_container").classList.remove("paused");
-  // genstart falling animation
-  document.querySelector("#ball3_container").classList.remove("ball_zoom_in");
-  document.querySelector("#ball3_container").offsetWidth;
-  document.querySelector("#ball3_container").classList.add("ball_zoom_in");
-  // gør det muligt at klikke på coin igen
-
-  document.querySelector("#ball3_container").addEventListener("mousedown", clickBall3);
+    ball.classList.remove("position1", "position2", "position3", "position4", "position5");
+    let pos = Math.floor(Math.random() * 5) + 1;
+    ball.classList.add("position" + pos);
 }
+
 
 //Alt der giver 5 plus point
 
+
 function clickGoldenBall() {
   console.log("Click goldenBall");
+  let ball = this;
+
   // Forhindr gentagne clicks
-  document.querySelector("#gold_ball_container").removeEventListener("mousedown", clickGoldenBall);
+  ball.removeEventListener("mousedown", clickGoldenBall);
 
   // Stop ball container
-  document.querySelector("#gold_ball_container").classList.add("paused");
+  ball.classList.add("paused");
 
   // sæt forsvind-animation på ball
-  document.querySelector("#gold_ball_sprite").classList.add("shot");
+  ball.querySelector("img").classList.add("shot");
 
   // når forsvind-animation er færdig: goldenBallGone
-  document.querySelector("#gold_ball_container").addEventListener("animationend", goldenBallGone);
+  ball.addEventListener("animationend", goldenBallGone);
 
   incrementGoldPoints();
 }
@@ -163,40 +143,54 @@ function clickGoldenBall() {
 
 function goldenBallGone() {
   console.log("gold ball gone");
+  let ball = this;
+
   // fjern event der bringer os herind
-  document.querySelector("#gold_ball_container").removeEventListener("animationend", goldenBallGone);
+  ball.removeEventListener("animationend", goldenBallGone);
 
   // fjern forsvind-animation
   document.querySelector("#gold_ball_sprite").classList.remove("shot");
 
   // fjern pause
-  document.querySelector("#gold_ball_container").classList.remove("paused");
+  ball.classList.remove("paused");
 
   // genstart falling animation
-  document.querySelector("#gold_ball_container").classList.remove("gold_ball_zoom_in");
-  document.querySelector("#gold_ball_container").offsetWidth;
-  document.querySelector("#gold_ball_container").classList.add("gold_ball_zoom_in");
+  goldenBallRestart.call(this);
   // skal have sat en timer på så den ikke kommer tilbage med det samme
 
   // gør det muligt at klikke på bolden igen
-  document.querySelector("#gold_ball_container").addEventListener("mousedown", clickGoldenBall);
+  ball.addEventListener("mousedown", clickGoldenBall);
 }
+
+function goldenBallRestart() {
+  let ball = this;
+  ball.classList.remove("gold_ball_zoom_in");
+  ball.offsetWidth;
+  ball.classList.add("gold_ball_zoom_in");
+
+  ball.classList.remove("position1", "position2", "position3", "position4", "position5");
+  let pos = Math.floor(Math.random() * 5) + 1;
+  ball.classList.add("position" + pos);
+}
+
 
 //Alt der giver minus point
 
 function clickJoachim() {
   console.log("Click joachim");
-  // Forhindr gentagne clicks
-  document.querySelector("#joachim_container").removeEventListener("mousedown", clickJoachim);
 
-  // Stop coin container
-  document.querySelector("#joachim_container").classList.add("paused");
+  let joachim = this;
 
-  // sæt forsvind-animation på coin
-  document.querySelector("#joachim_sprite").classList.add("spiral");
+  joachim.removeEventListener("mousedown", clickJoachim);
 
-  // når forsvind-animation er færdig: coinGone
-  document.querySelector("#joachim_container").addEventListener("animationend", joachimGone);
+
+  joachim.classList.add("paused");
+
+
+  joachim.querySelector("img").classList.add("spiral");
+
+
+  joachim.addEventListener("animationend", joachimGone);
 
     incrementCard();
 }
@@ -204,7 +198,10 @@ function clickJoachim() {
   function incrementCard() {
     console.log("incrementCard");
     cards++;
-     displayIncrementedCard();
+    displayIncrementedCard();
+    if (cards >= 2) {
+      gameOver();
+    }
   }
   function displayIncrementedCard() {
     console.log("#card" + cards)
@@ -214,26 +211,58 @@ function clickJoachim() {
 
 
 function joachimGone() {
-  // fjern event der bringer os herind
-  document.querySelector("#joachim_container").removeEventListener("animationend", joachimGone);
 
-  // fjern forsvind-animation
-  document.querySelector("#joachim_sprite").classList.remove("spiral");
+  let joachim = this;
+  
+  joachim.removeEventListener("animationend", joachimGone);
 
-  // fjern pause
-  document.querySelector("#joachim_container").classList.remove("paused");
 
-  // genstart falling animation
-  document.querySelector("#joachim_container").classList.remove("joachim_zoom_in");
-  document.querySelector("#joachim_container").offsetWidth;
-  document.querySelector("#joachim_container").classList.add("joachim_zoom_in");
+  joachim.querySelector("img").classList.remove("spiral");
 
-  // gør det muligt at klikke på coin igen
-  document.querySelector("#joachim_container").addEventListener("click", clickJoachim);
+
+  joachim.classList.remove("paused");
+
+
+  joachimRestart.call(this);
+
+
+  joachim.addEventListener("click", clickJoachim);
+}
+
+
+function joachimRestart() {
+  let joachim = this;
+  joachim.classList.remove("joachim_zoom_in");
+  joachim.offsetWidth;
+  joachim.classList.add("joachim_zoom_in");
+
+  joachim.classList.remove("position1", "position2", "position3", "position4", "position5");
+  let pos = Math.floor(Math.random() * 5) + 1;
+  joachim.classList.add("position" + pos);
 }
 
 
 
+
+
+//Game over og LevelComplete
+
+// if (cards >= 2) {
+//   gameOver();
+// } else {
+//   levelComplete();
+// }
+
+function gameOver() {
+  console.log("Game Over")
+  window.location.href = "http://127.0.0.1:5502/gameover.html";
+  document.querySelector("#game_over").classList.remove("hidden");
+
+}
+
+function levelComplete() {
+  console.log("Level Complete")
+}
 
 
 

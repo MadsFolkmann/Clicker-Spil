@@ -1,3 +1,20 @@
+/* Timer */
+
+ /* .timer{
+    animation-name: timer;
+    animation-duration: 60s;
+    animation-delay: 0;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    transform-origin: center left;
+}
+
+@keyframes timer {
+    100% {
+        transform: scale(0, 0.8);
+    }
+} */
+
 
 /* elements */
 .paused {

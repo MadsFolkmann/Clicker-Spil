@@ -241,10 +241,6 @@ function joachimRestart() {
   joachim.classList.add("position" + pos);
 }
 
-
-
-
-
 //Game over og LevelComplete
 
 // if (cards >= 2) {
@@ -262,8 +258,53 @@ function gameOver() {
 
 function levelComplete() {
   console.log("Level Complete")
+
+  document.querySelector("#level_complete").classList.remove("hidden");
+
 }
 
+
+//Timer
+
+const timeLeft = document.querySelector(".time-left");
+
+let countdown = 60;
+
+const timer = setInterval(() => {
+  countdown--;
+
+  if (countdown < 10) {
+    timeLeft.innerHTML = `0${countdown}`;
+  } else {
+    timeLeft.innerHTML = countdown;
+  }
+
+  if (countdown === 0) {
+    clearInterval(timer);
+    levelComplete()
+  }
+}, 1000);
+
+
+
+
+
+//Timer
+
+// function startTimer() {
+//   console.log("startTimer");
+//   addAnimation(timer_bar, "timer");
+//   time_bar.addEventListener("animationend", endGame);
+// }
+// function stopTimer() {
+//   console.log("stopTimer");
+//   replaceAnimation(timer_bar, "");
+// }
+// function resetTimer() {
+//   console.log("resetTimer");
+//   replaceAnimation(timer_bar, "");
+//   resetAnimation(timer_bar);
+// }
 
 
 

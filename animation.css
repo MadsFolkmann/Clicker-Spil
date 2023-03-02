@@ -103,7 +103,7 @@
     }
 }
 
-/* UI */
+/* UI: life board, time board */
 
 .active_card {
    filter: drop-shadow(0 0 2px yellow);
@@ -111,6 +111,29 @@
 
 .no_card {
     filter: grayscale(75%) blur(.5px);
+}
+
+
+.shrink {
+  animation-name: shrink_kf;
+  animation-duration: 30s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes shrink_kf {
+  0% {
+    scale: 1 1;
+    background-color: limegreen;
+  }
+  50% {
+    background-color: rgb(255, 230, 0);
+  }
+  100% {
+    scale: 0 1;
+    background-color: red;
+  }
 }
 
 

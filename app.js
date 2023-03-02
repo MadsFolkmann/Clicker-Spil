@@ -27,30 +27,48 @@ function start() {
   //Nulstil point og Liv
   points = 0
   cards = 0
-  countdown = 60;
   //Skjul start skærm
   document.querySelector("#start").classList.add("hidden");
   
   resetCards();
   resetPoints();
+  // resetTimer();
   showGameScreen();
   //start animationer
   startAnimationer();
-
+  
   //Click
-   click();
-
+  click();
+  
   //position
   positionering();
-
+  
   //restart
   setupRestart();
   
+  //tid
+  startTimer();
+  resetTimer();
+  
+
   // music
    document.querySelector("#sound_darwin").play();
   //  document.querySelector("#sound_darwin").loop();
 }
 
+function startTimer() {
+  // Sæt timer-animationen (shrink) i gang ved at tilføje klassen shrink til time_sprite
+  document.querySelector("#time_sprite").classList.add("shrink");
+
+  // Tilføj en eventlistener som lytter efter at animationen er færdig (animationend) og kalder funktionen timeIsUp
+  document.querySelector("#time_sprite").addEventListener("animationend", levelComplete);
+}
+
+function resetTimer() {
+  document.querySelector("#time_sprite").classList.remove("shrink");
+  document.querySelector("#time_sprite").offsetWidth;
+ document.querySelector("#time_sprite").classList.add("shrink");
+}
 
 function setupRestart() {
   document.querySelector("#ball1_container").addEventListener("animationiteration", ballRestart);
@@ -89,6 +107,7 @@ function startAnimationer() {
 }
 
 function resetCards() {
+  console.log ("Reset Card")
   // sæt lives til 3
   cards = 0;
   //nulstil visning af liv (hjerte vi ser)
@@ -261,7 +280,6 @@ function clickJoachim() {
   function incrementCard() {
     console.log("incrementCard");
     cards++;
-    displayIncrementedCard();
     if (cards >= 2) {
       gameOver();
     }
@@ -314,8 +332,8 @@ function joachimRestart() {
 
 function gameOver() {
   console.log("Game Over")
-  // window.location.href = "http://127.0.0.1:5502/gameover.html";
   document.querySelector("#game_over").classList.remove("hidden");
+  document.querySelector("#time_sprite").classList.remove("shrink");
 
 }
 
@@ -329,45 +347,24 @@ function levelComplete() {
 
 //Timer
 
-const timeLeft = document.querySelector(".time-left");
+// const timeLeft = document.querySelector(".time-left");
 
-let countdown = 60;
+// let countdown = 60;
 
-const timer = setInterval(() => {
-  countdown--;
+// const timer = setInterval(() => {
+//   countdown--;
 
-  if (countdown < 10) {
-    timeLeft.innerHTML = `0${countdown}`;
-  } else {
-    timeLeft.innerHTML = countdown;
-  }
+//   if (countdown < 10) {
+//     timeLeft.innerHTML = `0${countdown}`;
+//   } else {
+//     timeLeft.innerHTML = countdown;
+//   }
 
-  if (countdown === 0) {
-    clearInterval(timer);
-    levelComplete()
-  }
-}, 1000);
-
-
-
-
-
-//Timer
-
-// function startTimer() {
-//   console.log("startTimer");
-//   addAnimation(timer_bar, "timer");
-//   time_bar.addEventListener("animationend", endGame);
-// }
-// function stopTimer() {
-//   console.log("stopTimer");
-//   replaceAnimation(timer_bar, "");
-// }
-// function resetTimer() {
-//   console.log("resetTimer");
-//   replaceAnimation(timer_bar, "");
-//   resetAnimation(timer_bar);
-// }
+//   if (countdown === 0) {
+//     clearInterval(timer);
+//     levelComplete()
+//   }
+// }, 1000);
 
 
 

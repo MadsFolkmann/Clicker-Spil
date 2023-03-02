@@ -88,10 +88,11 @@ text-shadow: 2px 2px 5px #C8102E;
 font-weight: bold;
 }
 
-#start > p {
+#start > pre {
   font-size: 20px;
   color: #F6EB61;
   text-shadow: 2px 2px 5px black;
+  text-align: center;
 }
 
 .hidden,
@@ -106,8 +107,7 @@ font-weight: bold;
 #joachim_container, #joachim2_container {
   width: 7%;
   position: absolute;
-  /* top: 70%;
-  left: 48%; */
+ cursor: pointer;
   z-index: 3;
 }
 
@@ -119,8 +119,7 @@ font-weight: bold;
 #ball1_container {
   width: 6%;
   position: absolute;
-  /* top: 70%;
-  left: 30%; */
+ cursor: pointer;
   z-index: 2;
 }
 
@@ -133,8 +132,7 @@ font-weight: bold;
 #ball2_container {
   width: 6%;
   position: absolute;
-  /* top: 50%;
-  left: 72%; */
+ cursor: pointer;
   z-index: 2;
 }
 
@@ -151,8 +149,7 @@ font-weight: bold;
 #ball3_container {
   width: 6%;
   position: absolute;
-  /* top: 80%;
-  left: 45%; */
+ cursor: pointer;
   z-index: 2;
 }
 
@@ -160,8 +157,7 @@ font-weight: bold;
 #gold_ball_container {
   width: 11%;
   position: absolute;
-  /* top: 47%;
-  left: 23%; */
+ cursor: pointer;
   z-index: 2;
 }
 #gold_ball_sprite {
@@ -269,16 +265,18 @@ font-weight: bold;
   position: absolute;
   top: 3%;
   left: 0%;
+  justify-items: center;
+  align-items: center;
 }
 
 #life_board,
-#score_board,
-#time_board {
+#score_board, #time_board 
+ {
   font-size: 50px;
-  text-align: center;
   display: flex;
-  align-items: center;
+  text-align: center;
   justify-content: center;
+  align-items: center;
   font-family: "Pixel Takhisis";
   color: #C8102E;
    text-shadow: 2px 2px 5px black;
@@ -301,21 +299,28 @@ font-weight: bold;
 
 /* Timer */
 
-.timer {
-  width: 35%;
-  height: 100%;
-  border-radius: 50%;
-  background-image: url(billeder/22439-removebg-preview.png);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-size: 100%;
-  background-position: center;
+
+#time_board 
+ {
+
+  width: 80%;
+  aspect-ratio: 30/6;
+  border: 2px solid black;
+  background-image: url(billeder/37024025.png);
+  background-position: 50% 43%;
+  background-size: 180%;
 }
 
-.time-left {
-  text-align: center;
+
+#time_sprite {
+
+  width: 150%;
+  aspect-ratio: 29/6;
+  background-color: limegreen;
+  transform-origin: center bottom;
 }
+
+
 
 
 /* Start Botton */
@@ -323,9 +328,11 @@ button {
     padding: 0.5em 1em;
     font-size: 2em;
     margin: auto;
-    background-color: #ffad01;
-    color: #fff4bf;
-    border: 10px solid #ffc72e;
+    background-color: #C8102E;
+    color: #F6EB61;
+    border: 10px solid #00B2A9;
+    text-shadow: 2px 2px 5px black;
+    box-shadow: 2px 2px 5px black;
     cursor: pointer;
     border-radius: 10px;
 }

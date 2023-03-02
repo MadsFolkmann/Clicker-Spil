@@ -1,7 +1,7 @@
 "use strict"
 
 let points = 0;
-let cards = 0
+let cards = 0;
 
 window.addEventListener("load", ready)
 
@@ -9,15 +9,31 @@ document.body.style.overflow = "hidden";
 
 function ready() {
       console.log("JavaScript ready!");
-      document.querySelector("#btn_start").addEventListener("click", start);
+  document.querySelector("#btn_start").addEventListener("click", start);
+  document.querySelector("#btn_go_to_start").addEventListener("click", showStartScreen);
+  document.querySelector("#btn_restart").addEventListener("click", start);
+}
+
+function showStartScreen() {
+  // fjern hidden fra startskærm og tilføj til game over og level complete
+  document.querySelector("#start").classList.remove("hidden");
+  document.querySelector("#game_over").classList.add("hidden");
+  document.querySelector("#level_complete").classList.add("hidden");
 }
 
 function start() {
   console.log("JavaScript kører!")
 
-//Skjul start skærm
+  //Nulstil point og Liv
+  points = 0
+  cards = 0
+  countdown = 60;
+  //Skjul start skærm
   document.querySelector("#start").classList.add("hidden");
-
+  
+  resetCards();
+  resetPoints();
+  showGameScreen();
   //start animationer
   startAnimationer();
 
@@ -70,6 +86,30 @@ function startAnimationer() {
   document.querySelector("#gold_ball_container").classList.add("gold_ball_zoom_in");
   document.querySelector("#joachim_container").classList.add("joachim_zoom_in");
   document.querySelector("#joachim2_container").classList.add("joachim_zoom_in");
+}
+
+function resetCards() {
+  // sæt lives til 3
+  cards = 0;
+  //nulstil visning af liv (hjerte vi ser)
+  document.querySelector("#card1").classList.remove("active_card");
+  document.querySelector("#card2").classList.remove("active_card");
+  document.querySelector("#card1").classList.add("no_card");
+  document.querySelector("#card2").classList.add("no_card");
+}
+
+function resetPoints() {
+  // nulstil point
+  points = 0;
+  // nulstil vising af point
+  displayPoints();
+}
+
+function showGameScreen() {
+  // Skjul startskærm, game over og level complete
+  document.querySelector("#start").classList.add("hidden");
+  document.querySelector("#game_over").classList.add("hidden");
+  document.querySelector("#level_complete").classList.add("hidden");
 }
 
 //Alt der giver 1 plus point

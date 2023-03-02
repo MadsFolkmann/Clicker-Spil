@@ -11,7 +11,7 @@ img {
   /* grid-template-columns: 100%;
   grid-template-rows: 100%; */
   grid-template: 100% / 100%;
-  width: 100%;
+  /* width: 100%; */
   outline: solid black;
   aspect-ratio: 16/9;
 }
@@ -47,7 +47,12 @@ img {
     justify-content: center;
     align-content: center;
     background-image: url(billeder/mikedean.jpg);
-    color: #ffffff;
+    color: rgb(10, 10, 10);
+    background-size: 100%;
+}
+#game_over > h1 {
+    font-size: 150px;
+    text-shadow: 2px 2px 5px rgb(253, 3, 3);
 }
 
 #level_complete {
@@ -60,17 +65,45 @@ img {
     color: #ffffff;
 }
 
+/* Start screen */
+
+#start {
+    grid-area: 1 /1;
+    z-index: 999;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    background-image: url(billeder/Start-Screen.png);
+    background-size: 100%;
+}
+
+#start > h2 {
+  font-size: 55px;
+  z-index: 3;
+/* align-content: center;
+justify-content: center; */
+text-align: center;
+color: #00B2A9;
+text-shadow: 2px 2px 5px #C8102E;
+font-weight: bold;
+}
+
+#start > p {
+  font-size: 20px;
+  color: #F6EB61;
+  text-shadow: 2px 2px 5px black;
+}
 
 .hidden,
 #game_over.hidden,
-#level_complete.hidden {
+#level_complete.hidden, #start.hidden {
     display: none;
 }
 
 
 /* spil elementer */
 
-#joachim_container {
+#joachim_container, #joachim2_container {
   width: 7%;
   position: absolute;
   /* top: 70%;
@@ -78,7 +111,7 @@ img {
   z-index: 3;
 }
 
-#joachim_sprite {
+#joachim_sprite, #joachim2_sprite {
   width: 100%;
   height: 100%;
 }
@@ -163,6 +196,23 @@ img {
   left: 23%;
 }
 
+.position6 {
+  top: 72%;
+  left: 72%;
+}
+
+.position7 {
+  top: 75%;
+  left: 35%;
+}
+
+.position8 {
+  top: 50%;
+  left: 48%;
+}
+
+
+
 
 
 /* Ikke brugbare elementer */
@@ -212,6 +262,7 @@ img {
 #game_ui {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  /* grid-template-rows: 220px; */
   grid-template-rows: 150px;
   width: 100%;
   height: 100%;
@@ -238,10 +289,10 @@ img {
     right: auto;
 }
 
-#time_board > img {
+/* #time_board > img {
   width: 25%;
   right: auto;
-}
+} */
 
 #life_board > img {
   width: 15%;
@@ -267,14 +318,25 @@ img {
 }
 
 
-/* 
-#timer-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
+/* Start Botton */
+button {
+    padding: 0.5em 1em;
+    font-size: 2em;
+    margin: auto;
+    background-color: #ffad01;
+    color: #fff4bf;
+    border: 10px solid #ffc72e;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.pulse {
+    animation-name: pulse_kf;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-direction: alternate;
+}
+
+
+

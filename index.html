@@ -19,6 +19,11 @@
               id="joachim_sprite"src="billeder/Joachim-andersenjpg.png"alt=""
             />
           </div>
+          <div id="joachim2_container">
+            <img
+              id="joachim2_sprite"src="billeder/Joachim-andersenjpg.png"alt=""
+            />
+          </div>
           <div id="ball1_container">
             <img
               id="ball1_sprite"src="billeder/adidas-jabulani-ball-removebg-preview.png"alt=""
@@ -54,7 +59,6 @@
               id="darwin_sprite2"src="billeder/Darwin-Fist-small.png"alt=""/>
           </div>
         </div>
-        </div>
 
         <div id="game_ui">
           <div id="score_board">
@@ -62,7 +66,6 @@
             <span id="point_count">0</span>
           </div>
           <div id="time_board">
-            <!-- <img src="billeder/22439-removebg-preview.png" alt="" /> -->
               <div class="timer">
                 <div class="time-left">60</div>
               </div>
@@ -74,14 +77,25 @@
           </div>
         </div>
       </div>
-      <div id="start"></div>
+      <div id="start">
+            <h2>TEACH DARWIN NUNEZ TO SCORE!⚽</h2>
+            <p>Score as many goals as you can before the timer runs out, but be aware of Joachim Andersen. Dont hit him or you will get a yellow card.</p>
+            <button id="btn_start" class="pulse">Start</button>
+      </div>
       <div id="game_over" class="hidden">
         <h1>GAME OVER</h1>
       </div>
       <div id="level_complete" class="hidden">
         <h1>Highscore</h1>
       </div>
+      
     </div>
+
+    <!-- LYD FILER -->
+    <audio id="sound_darwin" src="lyd/Darwin Nunez liverpool chant.mp3" ></audio>
+    <audio id="sound_goal" src="lyd/Goooal.mp3" ></audio>
+    <audio id="sound_whistle" src="lyd/metal-whistle-1.mp3" ></audio>
+
 
     <script src="app.js">
       Java

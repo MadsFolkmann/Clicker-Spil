@@ -3,10 +3,20 @@
 let points = 0;
 let cards = 0
 
-window.addEventListener("load", start)
+window.addEventListener("load", ready)
+
+document.body.style.overflow = "hidden";
+
+function ready() {
+      console.log("JavaScript ready!");
+      document.querySelector("#btn_start").addEventListener("click", start);
+}
 
 function start() {
   console.log("JavaScript kører!")
+
+//Skjul start skærm
+  document.querySelector("#start").classList.add("hidden");
 
   //start animationer
   startAnimationer();
@@ -18,7 +28,11 @@ function start() {
   positionering();
 
   //restart
-   setupRestart();
+  setupRestart();
+  
+  // music
+   document.querySelector("#sound_darwin").play();
+  //  document.querySelector("#sound_darwin").loop();
 }
 
 
@@ -28,6 +42,7 @@ function setupRestart() {
   document.querySelector("#ball3_container").addEventListener("animationiteration", ballRestart);
   document.querySelector("#gold_ball_container").addEventListener("animationiteration", goldenBallRestart);
   document.querySelector("#joachim_container").addEventListener("animationiteration", joachimRestart);
+  document.querySelector("#joachim2_container").addEventListener("animationiteration", joachimRestart);
 }
 
 function positionering() {
@@ -36,6 +51,7 @@ function positionering() {
   document.querySelector("#ball3_container").classList.add("position3");
   document.querySelector("#gold_ball_container").classList.add("position4");
   document.querySelector("#joachim_container").classList.add("position5");
+  document.querySelector("#joachim2_container").classList.add("position6");
 }
 
 function click() {
@@ -44,6 +60,7 @@ function click() {
   document.querySelector("#ball3_container").addEventListener("mousedown", clickBall);
   document.querySelector("#gold_ball_container").addEventListener("mousedown", clickGoldenBall);
   document.querySelector("#joachim_container").addEventListener("mousedown", clickJoachim);
+  document.querySelector("#joachim2_container").addEventListener("mousedown", clickJoachim);
 }
 
 function startAnimationer() {
@@ -52,6 +69,7 @@ function startAnimationer() {
   document.querySelector("#ball3_container").classList.add("ball_zoom_in");
   document.querySelector("#gold_ball_container").classList.add("gold_ball_zoom_in");
   document.querySelector("#joachim_container").classList.add("joachim_zoom_in");
+  document.querySelector("#joachim2_container").classList.add("joachim_zoom_in");
 }
 
 //Alt der giver 1 plus point
@@ -68,6 +86,10 @@ function clickBall() {
 
   ball.addEventListener("animationend", ballGone);
 
+  //Lyd!
+    document.querySelector("#sound_goal").currentTime = 0;
+    document.querySelector("#sound_goal").play();
+  
    incrementPoints();
 }
 
@@ -102,8 +124,8 @@ function ballRestart() {
     ball.offsetWidth;
     ball.classList.add("ball_zoom_in");
 
-    ball.classList.remove("position1", "position2", "position3", "position4", "position5");
-    let pos = Math.floor(Math.random() * 5) + 1;
+    ball.classList.remove("position1", "position2", "position3", "position4", "position5", "position6", "position7", "position8");
+    let pos = Math.floor(Math.random() * 8) + 1;
     ball.classList.add("position" + pos);
 }
 
@@ -168,8 +190,8 @@ function goldenBallRestart() {
   ball.offsetWidth;
   ball.classList.add("gold_ball_zoom_in");
 
-  ball.classList.remove("position1", "position2", "position3", "position4", "position5");
-  let pos = Math.floor(Math.random() * 5) + 1;
+  ball.classList.remove("position1", "position2", "position3", "position4", "position5", "position6", "position7", "position8");
+  let pos = Math.floor(Math.random() * 8) + 1;
   ball.classList.add("position" + pos);
 }
 
@@ -183,16 +205,17 @@ function clickJoachim() {
 
   joachim.removeEventListener("mousedown", clickJoachim);
 
-
   joachim.classList.add("paused");
-
 
   joachim.querySelector("img").classList.add("spiral");
 
-
   joachim.addEventListener("animationend", joachimGone);
 
-    incrementCard();
+  //Lyd!
+  document.querySelector("#sound_whistle").currentTime = 0;
+  document.querySelector("#sound_whistle").play();
+
+  incrementCard();
 }
 
   function incrementCard() {
@@ -236,8 +259,8 @@ function joachimRestart() {
   joachim.offsetWidth;
   joachim.classList.add("joachim_zoom_in");
 
-  joachim.classList.remove("position1", "position2", "position3", "position4", "position5");
-  let pos = Math.floor(Math.random() * 5) + 1;
+  joachim.classList.remove("position1", "position2", "position3", "position4", "position5", "position6", "position7", "position8");
+  let pos = Math.floor(Math.random() * 8) + 1;
   joachim.classList.add("position" + pos);
 }
 
@@ -251,7 +274,7 @@ function joachimRestart() {
 
 function gameOver() {
   console.log("Game Over")
-  window.location.href = "http://127.0.0.1:5502/gameover.html";
+  // window.location.href = "http://127.0.0.1:5502/gameover.html";
   document.querySelector("#game_over").classList.remove("hidden");
 
 }

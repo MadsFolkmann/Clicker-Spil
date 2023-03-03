@@ -55,14 +55,57 @@ img {
     text-shadow: 2px 2px 5px rgb(253, 3, 3);
 }
 
+/* Level complete design */
+
 #level_complete {
     grid-area: 1 /1;
     z-index: 999;
     display: grid;
     justify-content: center;
     align-content: center;
-    background-image: linear-gradient(150deg, #20c903 0%, #09793b 100%);
+    background-image: url(billeder/GettyImages-1434802231-1024x742.jpg);
+    background-size: cover;
     color: #ffffff;
+}
+
+#level_complete button {
+  position: absolute;
+  top: 60%;
+  left: 40%;
+}
+
+#highscore {
+    padding: 10em 4.6em;
+    font-size: 1em;
+    margin: auto;
+    background-color: #C8102E;
+    color: #F6EB61;
+    border: 5px solid #00B2A9;
+    text-shadow: 2px 2px 5px black;
+    box-shadow: 2px 2px 5px black;
+    cursor: pointer;
+    border-radius: 10px;
+    position: absolute;
+    left: 2%;
+    top: 3%;
+    opacity: 90%;
+}
+
+#score {
+    padding: 10em 4.6em;
+    font-size: 1em;
+    margin: auto;
+    background-color: #C8102E;
+    color: #F6EB61;
+    border: 5px solid #00B2A9;
+    text-shadow: 2px 2px 5px black;
+    box-shadow: 2px 2px 5px black;
+    cursor: pointer;
+    border-radius: 10px;
+    position: absolute;
+    left: 69%;
+    top: 3%;
+    opacity: 90%;
 }
 
 /* Start screen */
@@ -78,10 +121,8 @@ img {
 }
 
 #start > h2 {
-  font-size: 55px;
+  font-size: 35px;
   z-index: 3;
-/* align-content: center;
-justify-content: center; */
 text-align: center;
 color: #00B2A9;
 text-shadow: 2px 2px 5px #C8102E;
@@ -89,7 +130,7 @@ font-weight: bold;
 }
 
 #start > pre {
-  font-size: 20px;
+  font-size: 14px;
   color: #F6EB61;
   text-shadow: 2px 2px 5px black;
   text-align: center;
@@ -121,7 +162,7 @@ font-weight: bold;
 /* spil elementer */
 
 #joachim_container, #joachim2_container {
-  width: 7%;
+  width: 5%;
   position: absolute;
  cursor: pointer;
   z-index: 3;
@@ -133,7 +174,7 @@ font-weight: bold;
 }
 
 #ball1_container {
-  width: 6%;
+  width: 5%;
   position: absolute;
  cursor: pointer;
   z-index: 2;
@@ -146,7 +187,7 @@ font-weight: bold;
 
 
 #ball2_container {
-  width: 6%;
+  width: 5%;
   position: absolute;
  cursor: pointer;
   z-index: 2;
@@ -163,7 +204,7 @@ font-weight: bold;
 }
 
 #ball3_container {
-  width: 6%;
+  width: 5%;
   position: absolute;
  cursor: pointer;
   z-index: 2;
@@ -171,7 +212,7 @@ font-weight: bold;
 
 
 #gold_ball_container {
-  width: 11%;
+  width: 8%;
   position: absolute;
  cursor: pointer;
   z-index: 2;
@@ -275,7 +316,7 @@ font-weight: bold;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   /* grid-template-rows: 220px; */
-  grid-template-rows: 150px;
+  grid-template-rows: 70px;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -288,7 +329,7 @@ font-weight: bold;
 #life_board,
 #score_board, #time_board 
  {
-  font-size: 50px;
+  font-size: 30px;
   display: flex;
   text-align: center;
   justify-content: center;
@@ -341,17 +382,19 @@ font-weight: bold;
 
 /* Start Botton */
 button {
-    padding: 0.5em 1em;
-    font-size: 2em;
+    padding: 0.5em 2em;
+    font-size: 1em;
     margin: auto;
     background-color: #C8102E;
     color: #F6EB61;
-    border: 10px solid #00B2A9;
+    border: 5px solid #00B2A9;
     text-shadow: 2px 2px 5px black;
     box-shadow: 2px 2px 5px black;
     cursor: pointer;
     border-radius: 10px;
 }
+
+
 
 .pulse {
     animation-name: pulse_kf;

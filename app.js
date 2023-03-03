@@ -347,26 +347,7 @@ function levelComplete() {
 }
 
 
-//Timer
 
-// const timeLeft = document.querySelector(".time-left");
-
-// let countdown = 60;
-
-// const timer = setInterval(() => {
-//   countdown--;
-
-//   if (countdown < 10) {
-//     timeLeft.innerHTML = `0${countdown}`;
-//   } else {
-//     timeLeft.innerHTML = countdown;
-//   }
-
-//   if (countdown === 0) {
-//     clearInterval(timer);
-//     levelComplete()
-//   }
-// }, 1000);
 
 
 

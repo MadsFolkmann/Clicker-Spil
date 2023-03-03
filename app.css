@@ -95,6 +95,22 @@ font-weight: bold;
   text-align: center;
 }
 
+#start_ball {
+  width: 8%;
+  height: auto;
+  position: absolute;
+  top: 45%;
+  left: 80%;
+}
+
+#start_ball2 {
+  width: 8%;
+  height: auto;
+  position: absolute;
+  top: 45%;
+  left: 10%;
+}
+
 .hidden,
 #game_over.hidden,
 #level_complete.hidden, #start.hidden {

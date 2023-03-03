@@ -334,6 +334,7 @@ function gameOver() {
   console.log("Game Over")
   document.querySelector("#game_over").classList.remove("hidden");
   document.querySelector("#time_sprite").classList.remove("shrink");
+  document.querySelector("#sound_darwin").pause();
 
 }
 
@@ -341,6 +342,7 @@ function levelComplete() {
   console.log("Level Complete")
 
   document.querySelector("#level_complete").classList.remove("hidden");
+     document.querySelector("#sound_darwin").pause();
 
 }
 

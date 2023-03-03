@@ -1,20 +1,22 @@
-/* Timer */
 
- /* .timer{
-    animation-name: timer;
-    animation-duration: 60s;
-    animation-delay: 0;
-    animation-timing-function: linear;
-    animation-iteration-count: 1;
-    transform-origin: center left;
+/* Start skærm */
+
+.bouncing {
+  animation-name: bouncing;
+  animation-duration: 0.7s;
+  animation-timing-function: cubic-bezier(0.68, 0.06, 0.85, 0.72);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
-@keyframes timer {
-    100% {
-        transform: scale(0, 0.8);
-    }
-} */
-
+@keyframes bouncing {
+  0% {
+    transform: translate(0, -100%);
+  }
+  100% {
+    transform: translate(0, 80%);
+  }
+}
 
 /* elements */
 .paused {

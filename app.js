@@ -22,38 +22,42 @@ function showStartScreen() {
 }
 
 function start() {
-  console.log("JavaScript kører!")
+  console.log("JavaScript kører!");
 
   //Nulstil point og Liv
-  points = 0
-  cards = 0
+  points = 0;
+  cards = 0;
   //Skjul start skærm
   document.querySelector("#start").classList.add("hidden");
-  
+
   resetCards();
   resetPoints();
   // resetTimer();
   showGameScreen();
   //start animationer
   startAnimationer();
-  
+
   //Click
   click();
-  
+
   //position
   positionering();
-  
+
   //restart
   setupRestart();
-  
+
   //tid
   startTimer();
   resetTimer();
-  
 
   // music
-   document.querySelector("#sound_darwin").play();
-  //  document.querySelector("#sound_darwin").loop();
+  //  document.querySelector("#sound_darwin").play();
+  // Get the audio element
+  const audio = document.querySelector("#sound_darwin");
+  // Set the loop attribute to true
+  audio.loop = true;
+  // Start playing the audio
+  audio.play();
 }
 
 function startTimer() {
@@ -342,7 +346,8 @@ function levelComplete() {
   console.log("Level Complete")
 
   document.querySelector("#level_complete").classList.remove("hidden");
-     document.querySelector("#sound_darwin").pause();
+  document.querySelector("#sound_darwin").pause();
+  document.querySelector("#score").textContent = "WAAAUW you got: " + points;
 
 }
 

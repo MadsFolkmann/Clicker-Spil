@@ -8,21 +8,16 @@ img {
 
 #screen {
   display: grid;
-  /* grid-template-columns: 100%;
-  grid-template-rows: 100%; */
   grid-template: 100% / 100%;
-  /* width: 100%; */
   outline: solid black;
   aspect-ratio: 16/9;
 }
 
 #game {
   grid-area: 1 / 1;
-  /* overflow: hidden; */
   display: grid;
   grid-template: 100% / 100%;
-  /* grid-template-columns: 10% / 10%;
-  grid-template-rows: 100%; */
+
 }
 
 #game_background {

@@ -19,20 +19,19 @@ function showStartScreen() {
   document.querySelector("#start").classList.remove("hidden");
   document.querySelector("#game_over").classList.add("hidden");
   document.querySelector("#level_complete").classList.add("hidden");
+  document.querySelector("#sound_level_complete").pause();
 }
 
 function start() {
   console.log("JavaScript kører!");
-
+  
+ 
   //Nulstil point og Liv
   points = 0;
   cards = 0;
-  console.log("cards: " + cards);
-  //Skjul start skærm
-  document.querySelector("#start").classList.add("hidden");
-
   resetCards();
   resetPoints();
+
   // resetTimer();
   showGameScreen();
   //start animationer
@@ -52,22 +51,16 @@ function start() {
   resetTimer();
 
   // music
-  //  document.querySelector("#sound_darwin").play();
-  // Get the audio element
   const audio = document.querySelector("#sound_darwin");
-
   audio.loop = true;
-  // Start playing the audio
   audio.play();
 
-    document.querySelector("#sound_darwin").volume = 0.2;
+  document.querySelector("#sound_darwin").volume = 0.2;
 }
 
 function startTimer() {
-  // Sæt timer-animationen (shrink) i gang ved at tilføje klassen shrink til time_sprite
   document.querySelector("#time_sprite").classList.add("shrink");
 
-  // Tilføj en eventlistener som lytter efter at animationen er færdig (animationend) og kalder funktionen timeIsUp
   document.querySelector("#time_sprite").addEventListener("animationend", levelComplete);
 }
 
@@ -115,9 +108,9 @@ function startAnimationer() {
 
 function resetCards() {
   console.log("Reset Card");
-  // sæt lives til 3
+  // sæt card til 0
   cards = 0;
-  //nulstil visning af liv (hjerte vi ser)
+  //nulstil visning af cards (cards vi ser)
   document.querySelector("#card1").classList.remove("active_card");
   document.querySelector("#card2").classList.remove("active_card");
   document.querySelector("#card1").classList.add("no_card");
@@ -201,26 +194,27 @@ function clickGoldenBall() {
 
   // Forhindr gentagne clicks
   ball.removeEventListener("mousedown", clickGoldenBall);
-
+  
   // Stop ball container
   ball.classList.add("paused");
-
+  
   // sæt forsvind-animation på ball
   ball.querySelector("img").classList.add("shot");
-
-  // når forsvind-animation er færdig: goldenBallGone
-  ball.addEventListener("animationend", goldenBallGone);
   
-  incrementGoldPoints();
+  // når forsvind-animation er færdig: goldenBallGone
+  
+  ball.addEventListener("animationend", goldenBallGone);
 
+  incrementGoldPoints();
+  
   //lyd
   document.querySelector("#sound_siu").currentTime = 0;
-   document.querySelector("#sound_siu").play();
+  document.querySelector("#sound_siu").play();
 }
 
 function incrementGoldPoints() {
   console.log("incrementGoldPoint");
-  points += 5;
+  points += 3;
   displayGoldPoints();
 }
 
@@ -229,25 +223,31 @@ function displayGoldPoints() {
 }
 
 function goldenBallGone() {
-  console.log("gold ball gone");
-  let ball = this;
+    console.log("gold ball gone");
+    let ball = this;
+    
+    setTimeout(() => {
+      
+      // fjern event der bringer os herind
+      ball.removeEventListener("animationend", goldenBallGone);
+      
+      // fjern forsvind-animation
+      document.querySelector("#gold_ball_sprite").classList.remove("shot");
+      
+      // fjern pause
+      ball.classList.remove("paused");
+      
+      // genstart zoom in animation
+      goldenBallRestart.call(this);
+      // skal have sat en timer på så den ikke kommer tilbage med det samme
+      
+      // gør det muligt at klikke på bolden igen
+      ball.addEventListener("mousedown", clickGoldenBall);
+    }, 4000);
+    
+  }
 
-  // fjern event der bringer os herind
-  ball.removeEventListener("animationend", goldenBallGone);
 
-  // fjern forsvind-animation
-  document.querySelector("#gold_ball_sprite").classList.remove("shot");
-
-  // fjern pause
-  ball.classList.remove("paused");
-
-  // genstart falling animation
-  goldenBallRestart.call(this);
-  // skal have sat en timer på så den ikke kommer tilbage med det samme
-
-  // gør det muligt at klikke på bolden igen
-  ball.addEventListener("mousedown", clickGoldenBall);
-}
 
 function goldenBallRestart() {
   let ball = this;
@@ -256,8 +256,10 @@ function goldenBallRestart() {
   ball.classList.add("gold_ball_zoom_in");
 
   ball.classList.remove("position1", "position2", "position3", "position4", "position5", "position6", "position7", "position8");
-  let pos = Math.floor(Math.random() * 8) + 1;
-  ball.classList.add("position" + pos);
+
+    let pos = Math.floor(Math.random() * 8) + 1;
+    ball.classList.add("position" + pos);
+
 }
 
 //Alt der giver minus point
@@ -309,7 +311,7 @@ function joachimGone() {
 
   joachimRestart.call(this);
 
-  // joachim.addEventListener("click", clickJoachim);
+  joachim.addEventListener("mousedown", clickJoachim);
 }
 
 function joachimRestart() {
@@ -323,17 +325,24 @@ function joachimRestart() {
   joachim.classList.add("position" + pos);
 }
 
+//Gameover eller level complete
+
 function gameOver() {
   console.log("Game Over");
+
   document.querySelector("#game_over").classList.remove("hidden");
   document.querySelector("#time_sprite").classList.remove("shrink");
+  document.querySelector("#game_over").classList.add("game_over_transition");  
+  document.querySelector("#sound_game_over").play();
   stopGame();
 }
 
 function levelComplete() {
   console.log("Level Complete");
 
+  document.querySelector("#sound_level_complete").play();
   document.querySelector("#level_complete").classList.remove("hidden");
+  document.querySelector("#level_complete").classList.add("level_complete_transition");
   stopGame();
   document.querySelector("#score").textContent = "WAAAUW YOU GOT " + points + " GOALS!!!!!!";
 }

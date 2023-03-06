@@ -1,14 +1,14 @@
-"use strict"
+"use strict";
 
 let points = 0;
 let cards = 0;
 
-window.addEventListener("load", ready)
+window.addEventListener("load", ready);
 
 document.body.style.overflow = "hidden";
 
 function ready() {
-      console.log("JavaScript ready!");
+  console.log("JavaScript ready!");
   document.querySelector("#btn_start").addEventListener("click", start);
   document.querySelector("#btn_go_to_start").addEventListener("click", showStartScreen);
   document.querySelector("#btn_restart").addEventListener("click", start);
@@ -27,6 +27,7 @@ function start() {
   //Nulstil point og Liv
   points = 0;
   cards = 0;
+  console.log("cards: " + cards);
   //Skjul start skærm
   document.querySelector("#start").classList.add("hidden");
 
@@ -54,10 +55,12 @@ function start() {
   //  document.querySelector("#sound_darwin").play();
   // Get the audio element
   const audio = document.querySelector("#sound_darwin");
-  // Set the loop attribute to true
+
   audio.loop = true;
   // Start playing the audio
   audio.play();
+
+    document.querySelector("#sound_darwin").volume = 0.2;
 }
 
 function startTimer() {
@@ -71,7 +74,7 @@ function startTimer() {
 function resetTimer() {
   document.querySelector("#time_sprite").classList.remove("shrink");
   document.querySelector("#time_sprite").offsetWidth;
- document.querySelector("#time_sprite").classList.add("shrink");
+  document.querySelector("#time_sprite").classList.add("shrink");
 }
 
 function setupRestart() {
@@ -111,7 +114,7 @@ function startAnimationer() {
 }
 
 function resetCards() {
-  console.log ("Reset Card")
+  console.log("Reset Card");
   // sæt lives til 3
   cards = 0;
   //nulstil visning af liv (hjerte vi ser)
@@ -150,27 +153,27 @@ function clickBall() {
   ball.addEventListener("animationend", ballGone);
 
   //Lyd!
-    document.querySelector("#sound_goal").currentTime = 0;
-    document.querySelector("#sound_goal").play();
-  
-   incrementPoints();
+  document.querySelector("#sound_goal").currentTime = 0;
+  document.querySelector("#sound_goal").play();
+
+  incrementPoints();
 }
 
-  function incrementPoints() {
-    console.log("incrementPoint");
-    points++;
-    displayPoints();
-  }
+function incrementPoints() {
+  console.log("incrementPoint");
+  points++;
+  displayPoints();
+}
 
-  function displayPoints() {
-    document.querySelector("#point_count").textContent = points;
-  }
+function displayPoints() {
+  document.querySelector("#point_count").textContent = points;
+}
 
 function ballGone() {
-  console.log("Ball gone")
+  console.log("Ball gone");
   let ball = this;
   ball.removeEventListener("animationend", ballGone);
-  
+
   ball.querySelector("img").classList.remove("shot");
 
   ball.classList.remove("paused");
@@ -178,23 +181,19 @@ function ballGone() {
   ballRestart.call(this);
 
   ball.addEventListener("mousedown", clickBall);
-
-
 }
 function ballRestart() {
   let ball = this;
-    ball.classList.remove("ball_zoom_in");
-    ball.offsetWidth;
-    ball.classList.add("ball_zoom_in");
+  ball.classList.remove("ball_zoom_in");
+  ball.offsetWidth;
+  ball.classList.add("ball_zoom_in");
 
-    ball.classList.remove("position1", "position2", "position3", "position4", "position5", "position6", "position7", "position8");
-    let pos = Math.floor(Math.random() * 8) + 1;
-    ball.classList.add("position" + pos);
+  ball.classList.remove("position1", "position2", "position3", "position4", "position5", "position6", "position7", "position8");
+  let pos = Math.floor(Math.random() * 8) + 1;
+  ball.classList.add("position" + pos);
 }
 
-
 //Alt der giver 5 plus point
-
 
 function clickGoldenBall() {
   console.log("Click goldenBall");
@@ -211,20 +210,23 @@ function clickGoldenBall() {
 
   // når forsvind-animation er færdig: goldenBallGone
   ball.addEventListener("animationend", goldenBallGone);
-
+  
   incrementGoldPoints();
+
+  //lyd
+  document.querySelector("#sound_siu").currentTime = 0;
+   document.querySelector("#sound_siu").play();
 }
 
-  function incrementGoldPoints() {
-    console.log("incrementGoldPoint");
-    points+= 5;
-    displayGoldPoints();
-  }
+function incrementGoldPoints() {
+  console.log("incrementGoldPoint");
+  points += 5;
+  displayGoldPoints();
+}
 
-  function displayGoldPoints() {
-    document.querySelector("#point_count").textContent = points;
-  }
-  
+function displayGoldPoints() {
+  document.querySelector("#point_count").textContent = points;
+}
 
 function goldenBallGone() {
   console.log("gold ball gone");
@@ -258,7 +260,6 @@ function goldenBallRestart() {
   ball.classList.add("position" + pos);
 }
 
-
 //Alt der giver minus point
 
 function clickJoachim() {
@@ -281,39 +282,35 @@ function clickJoachim() {
   incrementCard();
 }
 
-  function incrementCard() {
-    console.log("incrementCard");
-    cards++;
-    if (cards >= 2) {
-      gameOver();
-    }
+function incrementCard() {
+  console.log("incrementCard");
+  cards++;
+  displayIncrementedCard();
+  console.log("cards after inc:" + cards);
+  if (cards == 2) {
+    gameOver();
   }
-  function displayIncrementedCard() {
-    console.log("#card" + cards)
-    document.querySelector("#card" + cards).classList.remove("no_card");
-    document.querySelector("#card" + cards).classList.add("activate_card");
-  }
-
+}
+function displayIncrementedCard() {
+  console.log("#card" + cards);
+  document.querySelector("#card" + cards).classList.remove("no_card");
+  document.querySelector("#card" + cards).classList.add("activate_card");
+  
+}
 
 function joachimGone() {
-
   let joachim = this;
-  
-  joachim.removeEventListener("animationend", joachimGone);
 
+  joachim.removeEventListener("animationend", joachimGone);
 
   joachim.querySelector("img").classList.remove("spiral");
 
-
   joachim.classList.remove("paused");
-
 
   joachimRestart.call(this);
 
-
-  joachim.addEventListener("click", clickJoachim);
+  // joachim.addEventListener("click", clickJoachim);
 }
-
 
 function joachimRestart() {
   let joachim = this;
@@ -326,33 +323,39 @@ function joachimRestart() {
   joachim.classList.add("position" + pos);
 }
 
-//Game over og LevelComplete
-
-// if (cards >= 2) {
-//   gameOver();
-// } else {
-//   levelComplete();
-// }
-
 function gameOver() {
-  console.log("Game Over")
+  console.log("Game Over");
   document.querySelector("#game_over").classList.remove("hidden");
   document.querySelector("#time_sprite").classList.remove("shrink");
-  document.querySelector("#sound_darwin").pause();
-
+  stopGame();
 }
 
 function levelComplete() {
-  console.log("Level Complete")
+  console.log("Level Complete");
 
   document.querySelector("#level_complete").classList.remove("hidden");
-  document.querySelector("#sound_darwin").pause();
-  document.querySelector("#score").textContent = "WAAAUW you got: " + points;
-
+  stopGame();
+  document.querySelector("#score").textContent = "WAAAUW YOU GOT " + points + " GOALS!!!!!!";
 }
 
+function stopGame() {
+  document.querySelector("#ball1_container").classList.remove("ball_zoom_in");
+  document.querySelector("#ball2_container").classList.remove("ball_zoom_in");
+  document.querySelector("#ball3_container").classList.remove("ball_zoom_in");
+  document.querySelector("#joachim_container").classList.remove("joachim_zoom_in");
+  document.querySelector("#joachim2_container").classList.remove("joachim_zoom_in");
+  document.querySelector("#gold_ball_container").classList.remove("gold_ball_zoom_in");
 
+  // Fjern click
+  document.querySelector("#ball1_container").removeEventListener("mousedown", clickBall);
+  document.querySelector("#ball2_container").removeEventListener("mousedown", clickBall);
+  document.querySelector("#ball3_container").removeEventListener("mousedown", clickBall);
+  document.querySelector("#joachim_container").removeEventListener("mousedown", clickJoachim);
+  document.querySelector("#joachim2_container").removeEventListener("mousedown", clickJoachim);
+  document.querySelector("#gold_ball_container").removeEventListener("mousedown", clickGoldenBall);
 
-
-
-
+  // Stop og nulstil lyde, fx baggrundsmusik
+  document.querySelector("#sound_darwin").pause();
+  document.querySelector("#sound_darwin").currentTime = 0;
+  cards = 0;
+}

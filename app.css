@@ -37,75 +37,6 @@ img {
   position: relative;
 }
 
-
-/* Game_over, Level_Complete */
-
-#game_over {
-    grid-area: 1 /1;
-    z-index: 999;
-    display: grid;
-    justify-content: center;
-    align-content: center;
-    background-image: url(billeder/mikedean.jpg);
-    color: rgb(90, 88, 88);
-    background-size: 100%;
-}
-#game_over > h1 {
-    font-size: 80px;
-    text-shadow: 2px 2px 5px rgb(253, 3, 3);
-}
-
-/* Level complete design */
-
-#level_complete {
-    grid-area: 1 /1;
-    z-index: 999;
-    display: grid;
-    justify-content: center;
-    align-content: center;
-    background-image: url(billeder/GettyImages-1434802231-1024x742.jpg);
-    background-size: cover;
-    color: #ffffff;
-}
-
-#level_complete button {
-  position: absolute;
-  top: 60%;
-  left: 40%;
-}
-
-#highscore {
-    padding: 10em 4.6em;
-    font-size: 1em;
-    margin: auto;
-    background-color: #C8102E;
-    color: #F6EB61;
-    border: 5px solid #00B2A9;
-    text-shadow: 2px 2px 5px black;
-    box-shadow: 2px 2px 5px black;
-    border-radius: 10px;
-    position: absolute;
-    left: 2%;
-    top: 3%;
-    opacity: 90%;
-}
-
-#score {
-    padding: 10em 4.6em;
-    font-size: 1em;
-    margin: auto;
-    background-color: #C8102E;
-    color: #F6EB61;
-    border: 5px solid #00B2A9;
-    text-shadow: 2px 2px 5px black;
-    box-shadow: 2px 2px 5px black;
-    border-radius: 10px;
-    position: absolute;
-    left: 69%;
-    top: 3%;
-    opacity: 90%;
-}
-
 /* Start screen */
 
 #start {
@@ -148,6 +79,58 @@ font-weight: bold;
   position: absolute;
   top: 45%;
   left: 10%;
+}
+
+/* Game_over, Level_Complete */
+
+#game_over {
+    grid-area: 1 /1;
+    z-index: 999;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    background-image: url(billeder/mikedean.jpg);
+    color: rgb(90, 88, 88);
+    background-size: 100%;
+}
+#game_over > h1 {
+    font-size: 80px;
+    text-shadow: 2px 2px 5px rgb(253, 3, 3);
+}
+
+/* Level complete design */
+
+#level_complete {
+    grid-area: 1 /1;
+    z-index: 999;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    background-image: url(billeder/334897981_560424366059363_3783873401683322614_n.jpg);
+    background-size: cover;
+    color: #ffffff;
+}
+
+#level_complete button {
+  position: relative;
+  top: 60%;
+  font-size: 20px;
+}
+
+#score {
+    position: relative;
+  top: -120%;
+  /* color: red; */
+  padding: 1em 1em;
+  font-size: 2em;
+  margin: auto;
+  background-color: #C8102E;
+  color: #F6EB61;
+  border: 5px solid #00B2A9;
+  text-shadow: 2px 2px 5px black;
+  box-shadow: 2px 2px 5px black;
+  border-radius: 10px;
+
 }
 
 .hidden,

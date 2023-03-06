@@ -42,22 +42,25 @@ img {
     align-content: center;
     background-image: url(billeder/Start-Screen.png);
     background-size: 100%;
+    font-family: 'Climate Crisis';
 }
 
 #start > h2 {
-  font-size: 35px;
+  font-size: 25px;
   z-index: 3;
 text-align: center;
 color: #00B2A9;
 text-shadow: 2px 2px 5px #C8102E;
 font-weight: bold;
+
 }
 
 #start > pre {
-  font-size: 14px;
+  font-size: 12px;
   color: #F6EB61;
-  text-shadow: 2px 2px 5px black;
+  text-shadow: 5px 5px 10px black;
   text-align: center;
+  font-family: 'Climate Crisis', cursive;
 }
 
 #start_ball {
@@ -65,7 +68,7 @@ font-weight: bold;
   height: auto;
   position: absolute;
   top: 45%;
-  left: 80%;
+  left: 85%;
 }
 
 #start_ball2 {
@@ -73,7 +76,7 @@ font-weight: bold;
   height: auto;
   position: absolute;
   top: 45%;
-  left: 10%;
+  left: 7%;
 }
 
 /* Game_over, Level_Complete */
@@ -85,12 +88,26 @@ font-weight: bold;
     justify-content: center;
     align-content: center;
     background-image: url(billeder/mikedean.jpg);
-    color: rgb(90, 88, 88);
+    color: rgb(253, 3, 3);
     background-size: 100%;
-}
-#game_over > h1 {
+    font-family: 'Climate Crisis';
+  }
+ #game_over > h1 {
     font-size: 80px;
-    text-shadow: 2px 2px 5px rgb(253, 3, 3);
+    text-shadow: 2px 2px 5px rgb(179, 40, 40);
+  }
+
+#game_over > p {
+  position: relative;
+  left: 8%;
+  font-size: 30px;
+  top: -30%;
+  text-shadow: 2px 2px 5px rgb(82, 4, 4);
+}
+
+#game_over > button {
+  position: relative;
+  top: 20%;
 }
 
 /* Level complete design */
@@ -104,20 +121,21 @@ font-weight: bold;
     background-image: url(billeder/334897981_560424366059363_3783873401683322614_n.jpg);
     background-size: cover;
     color: #ffffff;
+    font-family: 'Climate Crisis';
 }
 
 #level_complete button {
   position: relative;
-  top: 60%;
+  top: 80%;
   font-size: 20px;
 }
 
 #score {
     position: relative;
-  top: -120%;
+  top: -100%;
   /* color: red; */
   padding: 1em 1em;
-  font-size: 2em;
+  font-size: 1.5em;
   margin: auto;
   background-color: #C8102E;
   color: #F6EB61;
@@ -125,8 +143,10 @@ font-weight: bold;
   text-shadow: 2px 2px 5px black;
   box-shadow: 2px 2px 5px black;
   border-radius: 10px;
-
+  margin-left: 10px;
+  margin-right: 10px;
 }
+
 
 .hidden,
 #game_over.hidden,
@@ -305,12 +325,12 @@ font-weight: bold;
 #life_board,
 #score_board, #time_board 
  {
-  font-size: 30px;
+  font-size: 25px;
   display: flex;
   text-align: center;
   justify-content: center;
   align-items: center;
-  font-family: "Pixel Takhisis";
+  font-family: 'Climate Crisis';
   color: #C8102E;
    text-shadow: 2px 2px 5px black;
 }

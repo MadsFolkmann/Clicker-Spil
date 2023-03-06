@@ -156,7 +156,7 @@
 
 .level_complete_transition {
   animation-name: level_complete;
-  animation-duration: 2s;
+  animation-duration: 1.5s;
   animation-iteration-count: 1;
   animation-timing-function: linear;
   animation-fill-mode: forwards;
@@ -166,7 +166,12 @@
         0% {
         transform: scale(0);
     }
-
+    30% {
+        transform: scale(0.9);
+    }
+    60% {
+        transform: scale(0.1);
+    }
     100% {
         transform: scale(1);
     }

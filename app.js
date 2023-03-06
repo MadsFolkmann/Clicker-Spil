@@ -186,7 +186,7 @@ function ballRestart() {
   ball.classList.add("position" + pos);
 }
 
-//Alt der giver 5 plus point
+//Alt der giver 3 plus point
 
 function clickGoldenBall() {
   console.log("Click goldenBall");
@@ -341,10 +341,16 @@ function levelComplete() {
   console.log("Level Complete");
 
   document.querySelector("#sound_level_complete").play();
+  document.querySelector("#time_sprite").classList.remove("shrink");
   document.querySelector("#level_complete").classList.remove("hidden");
   document.querySelector("#level_complete").classList.add("level_complete_transition");
   stopGame();
-  document.querySelector("#score").textContent = "WAAAUW YOU GOT " + points + " GOALS!!!!!!";
+
+  if (points >= 25) {
+    document.querySelector("#score").textContent = "WAAAUW YOU GOT " + points + " GOALS!!!!!!";
+  } else {
+        document.querySelector("#score").textContent = "WAUUUW THATS BAD ONLY " + points + " GOALS, RESTART AND TRY AGAIN N00B";
+  }
 }
 
 function stopGame() {

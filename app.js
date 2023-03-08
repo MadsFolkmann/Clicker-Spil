@@ -8,7 +8,6 @@ window.addEventListener("load", ready);
 document.body.style.overflow = "hidden";
 
 function ready() {
-  console.log("JavaScript ready!");
   document.querySelector("#btn_start").addEventListener("click", start);
   document.querySelector("#btn_go_to_start").addEventListener("click", showStartScreen);
   document.querySelector("#btn_restart").addEventListener("click", start);
@@ -23,9 +22,7 @@ function showStartScreen() {
 }
 
 function start() {
-  console.log("JavaScript kører!");
-  
- 
+
   //Nulstil point og Liv
   points = 0;
   cards = 0;
@@ -239,15 +236,12 @@ function goldenBallGone() {
       
       // genstart zoom in animation
       goldenBallRestart.call(this);
-      // skal have sat en timer på så den ikke kommer tilbage med det samme
       
-      // gør det muligt at klikke på bolden igen
+      // gør det muligt at klikke på ball igen
       ball.addEventListener("mousedown", clickGoldenBall);
     }, 4000);
     
-  }
-
-
+ }
 
 function goldenBallRestart() {
   let ball = this;
